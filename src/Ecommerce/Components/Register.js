@@ -25,14 +25,7 @@ const Register = () => {
   const [regFormSum, setRegFormSum] = useState(false);
 
   useEffect(() => {
-    // const fetchDbData = async () => {
-    //   const res = await fetch("http://localhost:8000/auth");
-    //   const resData = await res.json();
-    //   setExistDbData(resData);
-    //   // console.log(existDbData);
-    // };
-    // fetchDbData();
-    // localStorage.removeItem(`usersData`)
+    
     if (localStorage.getItem(`usersData`) === null) {
       // console.log("Undef");
       localStorage.setItem(`usersData`, JSON.stringify([]));
@@ -53,17 +46,7 @@ const Register = () => {
       userUserName !== "" &&
       userPassword !== ""
     ) {
-      // existDbData.map((jsonData) => {
-      //   if (jsonData.userName === userUserName) {
-      //     setTextFieldErr(true);
-      //     setTextFieldUserErr(true);
-      //     setTimeout(() => {
-      //       setTextFieldErr(false);
-      //       setTextFieldUserErr(false);
-      //     }, 3000);
-      //   }
-
-      // });
+    
       if (existDbData.length === 0) {
         let newUser = {
           id: 1,
@@ -97,18 +80,7 @@ const Register = () => {
             setTextFieldUserErr(false);
           }, 3000);
         } else {
-          //Post Data
-          // fetch("http://localhost:8000/auth", {
-          //   method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify({
-          //     userName: userUserName,
-          //     password: userPassword,
-          //     totalCart: [],
-          //   }),
-          // }).then((res) => res.json());
+    
 
           let newUser = {
             id: existDbData.length + 1,

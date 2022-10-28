@@ -9,8 +9,7 @@ import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
-
-// import { UserContext } from "./Products";
+import productsDataArr from "./productsDataArr";
 
 const Product = (props) => {
   const [productData, setProductData] = useState([]);
@@ -22,12 +21,12 @@ const Product = (props) => {
 
   const getProducts = async () => {
     setLoading(true);
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-    // if (componentMounted) {
-    const resData = await response.json();
-    // setProductsData(resData);
-    // const prodData = productsData.filter((item) => item.id === id);
-    setProductData(resData);
+    // const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    // // if (componentMounted) {
+    // const resData = await response.json();
+    // // setProductsData(resData);
+    // // const prodData = productsData.filter((item) => item.id === id);
+    setProductData(productsDataArr[id-1]);
     setLoading(false);
     console.log(productData);
     // }

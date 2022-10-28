@@ -9,6 +9,7 @@ import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Checkbox from "@mui/material/Checkbox";
+import productsDataArr from "./productsDataArr";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -36,28 +37,25 @@ const Products = () => {
 
   const getProducts = async () => {
     setLoading(true);
-    const response = await fetch("https://fakestoreapi.com/products");
+    // const response = await fetch("https://fakestoreapi.com/products");
     if (componentMounted) {
-      const resData = await response.json();
-      console.log(resData);
-      setProductsData(resData);
+      // const resData = await response.json();
+      // console.log(resData);
+      setProductsData(productsDataArr);
       // setProductData(resData);
       const productsCat = [
         "all",
-        ...new Set(resData.map((data) => data.category)),
+        ...new Set(productsDataArr.map((data) => data.category)),
       ];
       setProductsCat(productsCat);
-      setfilterData(resData);
-      setPriceList(resData);
+      setfilterData(productsDataArr);
+      setPriceList(productsDataArr);
       setLoading(false);
 
       // console.log(productsData);
     }
   };
-  // const stDisFlex={
-  //   display:'flex',
 
-  // }
   const handleClickproductCat = (value) => {
     console.log(value);
     if (value === "all") {
@@ -68,19 +66,6 @@ const Products = () => {
     }
   };
 
-  // const handleClickProduct = () => {
-  //   setProductDataPass(true);
-  //   console.log(productDataPass);
-  //   // const updateList = productsData.filter((data) => data.id === e.target.id);
-  //   // setProductData(updateList);
-
-  //   // console.log(e.target.id);
-  //   // const productOne = productsData.filter((data) => data.id === e.target.id);
-
-  //   // setProductData(productOne);
-  //   // return <NavLink to={`/Product/${e.target.id}`}></NavLink>;
-  //   // console.log(productsData.filter((data) => data.id === e.target.id));
-  // };
   useEffect(() => {
     getProducts();
 
@@ -151,6 +136,9 @@ const Products = () => {
         return a.price - b.price;
       });
       // console.log(priceList);
+      updateList = updateList.map((data, index) => {
+        data.id = index + 1;
+      });
       setfilterData(updateList);
     } else {
       console.log(isHighToLow);
@@ -182,7 +170,9 @@ const Products = () => {
       const updateList = priceList.sort(function (a, b) {
         return b.price - a.price;
       });
-
+      updateList = updateList.map((data, index) => {
+        data.id = index + 1;
+      });
       setfilterData(updateList);
     } else {
       console.log(isHighToLow);
@@ -214,7 +204,9 @@ const Products = () => {
       const updateList = priceList.sort(function (a, b) {
         return b.rating.rate - a.rating.rate;
       });
-
+      updateList = updateList.map((data, index) => {
+        data.id = index + 1;
+      });
       setfilterData(updateList);
     } else {
       console.log(isHighToLow);
@@ -386,15 +378,7 @@ const Products = () => {
                   <Card
                   // sx={{ maxWidth: "65%" }}
                   >
-                    <Box
-                      id={data.id}
-                      // component={Link}
-                      // to={`/Product/${data.id}`}
-                      // onClick={handleClickProduct}
-                      // onClick={() => {
-                      //   productDataPass = true;
-                      // }}
-                    >
+                    <Box id={data.id}>
                       <CardMedia
                         id={data.id}
                         component="img"
@@ -410,12 +394,6 @@ const Products = () => {
                     </Box>
                     <CardContent
                       id={data.id}
-                      // component={Link}
-                      // onClick={handleClickProduct}
-                      // onClick={() => {
-                      //   productDataPass = true;
-                      // }}
-                      // to={`/Product/${data.id}`}
                       sx={{
                         display: "flex",
                         flexDirection: "column",
@@ -444,13 +422,7 @@ const Products = () => {
                       >
                         ${data.price}
                       </Typography>
-                      {/* <Typography variant="body2" color="text.secondary">
-                  {data.description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Rating : No.of Pepole Reviwed - {data.rating.count} and Rate -{" "}
-                  {data.rating.rate}
-                </Typography> */}
+
                       <Box
                         id={data.id}
                         display="flex"
@@ -492,26 +464,7 @@ const Products = () => {
                         justifyContent: "center",
                         alignItems: "center",
                       }}
-                    >
-                      {/* <Button
-                    component={Link}
-                    to="/Product"
-                    size="small"
-                    variant="contained"
-                  >
-                    Buy Now
-                  </Button> */}
-                      {/* <Button
-                    key={data.id}
-                    id={data.id}
-                    component={Link}
-                    to={`/Product/${data.id}`}
-                    size="small"
-                    variant="contained"
-                  >
-                    Add To Cart
-                  </Button> */}
-                    </CardActions>
+                    ></CardActions>
                   </Card>
                 </Box>
               ))

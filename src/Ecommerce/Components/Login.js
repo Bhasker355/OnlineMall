@@ -35,14 +35,7 @@ const Login = (props) => {
     // console.log(password);
   };
   useEffect(() => {
-    // const fetchDbData = async () => {
-    //   const res = await fetch("http://localhost:8000/auth");
-    //   const resData = await res.json();
-    //   setUserData(resData);
-    //   console.log(resData);
-    // };
-    // fetchDbData();
-    // console.log(userData);
+    
 
     if (localStorage.getItem(`usersData`) === null) {
       // console.log("Undef");
@@ -89,13 +82,7 @@ const Login = (props) => {
     }
   };
 
-  // const logIn = () => {
-  //   if (window.confirm("Are You Sure Want to Logout?") === true) {
-  //     localStorage.clear();
-  //     props.onLogOutClick(false);
-  //     setLogOutSt(!logOutSt);
-  //   }
-  // };
+  
   return (
     <>
       {userLoginSt ? (

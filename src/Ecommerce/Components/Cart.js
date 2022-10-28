@@ -12,24 +12,13 @@ import { UserContext } from "../../App";
 import { UserNameContext } from "../../App";
 
 let totalCart = [];
-// console.log((localStorage.getItem("totalCart")));
 
-// localStorage.setItem(
-//   "totalCart",
-//   JSON.stringify([{ id: "Hello" }, { two: "run" }])
-// );
 let localCart;
 
-// let localCart = JSON.parse(localStorage.getItem("totalCart"));
+
 console.log(`totalCart${localStorage.getItem("username")}`);
 
-// () => {
-//   if (localStorage.getItem("totalCart")) {
-//     return localStorage.getItem("totalCart");
-//   } else {
-//     return localStorage.setItem("totalCart", []);
-//   }
-// };
+
 
 const Cart = ({ cartData }) => {
   const [cart, setCart] = useState([cartData]);
@@ -41,35 +30,11 @@ const Cart = ({ cartData }) => {
   const userName = React.useContext(UserNameContext);
   console.log(userName);
   console.log(userLoginSt);
-  // const [totalCart, setTotalCart] = useState([cart]);
-
-  // const [laoding, setLoading] = useState(true);
-  // const fetchDbData = async () => {
-  //   const res = await fetch("http://localhost:8000/auth");
-  //   const resData = await res.json();
-  //   // setExistDbData(resData);
-  //   // console.log(existDbData);
-  // };
-
-  // const fetchDbPostData =async () => { fetch("http://localhost:8000/auth", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           // totalCart: userUserName,
-
-  //         }),
-  //       }).then((res) => res.json());}
+  
 
   useEffect(() => {
     if (userLoginSt) {
-      // if (localStorage.getItem(`totalCart${userName}`) === null) {
-      //   // console.log("Undef");
-      //   localStorage.setItem(`totalCart${userName}`, JSON.stringify([]));
-      // } else {
-      // totalCart = JSON.parse(localStorage.getItem(`totalCart${userName}`));
-      // }
+      
       let qunty = 0;
       let totalPriceAll = 0;
       console.log(totalQty);
@@ -84,7 +49,7 @@ const Cart = ({ cartData }) => {
         localStorage.setItem(`totalCart${userName}`, JSON.stringify(totalCart));
         setTotalQty(qunty);
         setTotalPrice(totalPriceAll);
-        // setTotalPrice(totalPrice + item.price);
+       
       });
     }
     return () => {
@@ -96,8 +61,7 @@ const Cart = ({ cartData }) => {
 
   useEffect(() => {
     if (userLoginSt) {
-      // let user={`totalCart${localStorage.getItem("username")}`:'one'}
-      //  let `${localStorage.getItem("username")}totalCart` = [];
+      
       setCart([{ ...cartData }]);
       if (localStorage.getItem(`totalCart${userName}`) === null) {
         // console.log("Undef");
@@ -232,8 +196,7 @@ const Cart = ({ cartData }) => {
         }}
         margin="10px 50px"
 
-        // alignItems="center"
-        // sx={{ flexDirection: { xs: "column", sm: "row" } }}
+      
       >
         <Box
           width="100%"
@@ -241,8 +204,7 @@ const Cart = ({ cartData }) => {
           backgroundColor="white"
           display="flex"
           flexDirection="column"
-          // alignItems="center"
-          // sx={{ flexDirection: { xs: "column", sm: "row" } }}
+         
         >
           {userLoginSt === false ? (
             <ShowCartLogin />
@@ -269,7 +231,7 @@ const Cart = ({ cartData }) => {
                     component="img"
                     height="100"
                     width="100"
-                    // image="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+                    
                     image={data.image}
                     alt="green iguana"
                   />
@@ -277,7 +239,7 @@ const Cart = ({ cartData }) => {
                 <Box>
                   <CardContent>
                     <Typography gutterBottom variant="h6" component="div">
-                      {/* Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops */}
+                     
                       {data.title}
                     </Typography>
                     <Box

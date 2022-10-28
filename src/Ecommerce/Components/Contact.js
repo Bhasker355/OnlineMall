@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 
-// import { fetchDbData } from "../utilis/jsonData";
+
 
 const Contact = () => {
   const [firstName, setFirstName] = useState("");
@@ -25,16 +25,7 @@ const Contact = () => {
   const [textFieldPassErr, setTextFieldPasErr] = useState(false);
   const [regFormSum, setRegFormSum] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchDbData = async () => {
-  //     const res = await fetch("http://localhost:8000/auth");
-  //     const resData = await res.json();
-  //     setExistDbData(resData);
-
-  //   };
-  //   fetchDbData();
-
-  // }, [submitSt]);
+  
 
   const handleClickSumbit = () => {
     setSubmitSt(!submitSt);
@@ -134,16 +125,7 @@ const Contact = () => {
             value={enterQuery}
           />
         </Box>
-        {/* <Box mt={2}>
-          <Typography mb={1}>Select Password</Typography>
-          <TextField
-            // onChange={(e) => changInput(setuserPassword, e.target.value)}
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            // value={userPassword}
-          />
-        </Box> */}
+        
         <Box>
           <Button
             onClick={handleClickSumbit}

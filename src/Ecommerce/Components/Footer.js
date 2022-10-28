@@ -6,8 +6,7 @@ const Footer = () => {
     <>
       <Box position="relative">
         <Box
-          //   position='absolute'
-          //   bottom='0px'
+          
           height="40px"
           sx={{
             backgroundColor: "#1976d2",
