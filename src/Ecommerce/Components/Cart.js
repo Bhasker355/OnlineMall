@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
-import Rating from "@mui/material/Rating";
+
 import { UserContext } from "../../App";
 import { UserNameContext } from "../../App";
 
@@ -15,10 +15,7 @@ let totalCart = [];
 
 let localCart;
 
-
 console.log(`totalCart${localStorage.getItem("username")}`);
-
-
 
 const Cart = ({ cartData }) => {
   const [cart, setCart] = useState([cartData]);
@@ -30,11 +27,9 @@ const Cart = ({ cartData }) => {
   const userName = React.useContext(UserNameContext);
   console.log(userName);
   console.log(userLoginSt);
-  
 
   useEffect(() => {
     if (userLoginSt) {
-      
       let qunty = 0;
       let totalPriceAll = 0;
       console.log(totalQty);
@@ -49,7 +44,6 @@ const Cart = ({ cartData }) => {
         localStorage.setItem(`totalCart${userName}`, JSON.stringify(totalCart));
         setTotalQty(qunty);
         setTotalPrice(totalPriceAll);
-       
       });
     }
     return () => {
@@ -61,7 +55,6 @@ const Cart = ({ cartData }) => {
 
   useEffect(() => {
     if (userLoginSt) {
-      
       setCart([{ ...cartData }]);
       if (localStorage.getItem(`totalCart${userName}`) === null) {
         // console.log("Undef");
@@ -195,8 +188,6 @@ const Cart = ({ cartData }) => {
           flexDirection: { lg: "row", md: "row", sm: "column", xs: "column" },
         }}
         margin="10px 50px"
-
-      
       >
         <Box
           width="100%"
@@ -204,7 +195,6 @@ const Cart = ({ cartData }) => {
           backgroundColor="white"
           display="flex"
           flexDirection="column"
-         
         >
           {userLoginSt === false ? (
             <ShowCartLogin />
@@ -231,7 +221,6 @@ const Cart = ({ cartData }) => {
                     component="img"
                     height="100"
                     width="100"
-                    
                     image={data.image}
                     alt="green iguana"
                   />
@@ -239,7 +228,6 @@ const Cart = ({ cartData }) => {
                 <Box>
                   <CardContent>
                     <Typography gutterBottom variant="h6" component="div">
-                     
                       {data.title}
                     </Typography>
                     <Box
@@ -254,7 +242,7 @@ const Cart = ({ cartData }) => {
                         ${data.price}
                         <span style={{ fontSize: "0.75rem" }}>/Each</span>
                       </Typography>
-                      <Typography
+                      <Box
                         sx={{
                           backgroundColor: "grey",
                           fontWeight: "600",
@@ -268,7 +256,10 @@ const Cart = ({ cartData }) => {
                           flexDirection: "row",
                         }}
                       >
-                        {`Qty: ${data.qty}`}
+                        <Typography color="white">
+                          {" "}
+                          {`Qty: ${data.qty}`}{" "}
+                        </Typography>
                         <Box
                           sx={{
                             ml: "5px",
@@ -304,7 +295,7 @@ const Cart = ({ cartData }) => {
                             -
                           </Button>
                         </Box>
-                      </Typography>
+                      </Box>
                     </Box>
                     {data.qty > 1 && (
                       <Typography

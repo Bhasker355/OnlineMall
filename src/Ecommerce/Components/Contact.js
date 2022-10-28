@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {
   TextField,
-  FormControlLabel,
+  
   Box,
   Typography,
   Button,
   Alert,
   Stack,
 } from "@mui/material";
-import { Container } from "@mui/system";
+
 
 
 
@@ -16,13 +16,13 @@ const Contact = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [enterQuery, setEnterQuery] = useState("");
-  const [userUserName, setuserUserName] = useState("");
-  const [userPassword, setuserPassword] = useState("");
-  const [existDbData, setExistDbData] = useState("");
+  // const [userUserName, setuserUserName] = useState("");
+  // const [userPassword, setuserPassword] = useState("");
+  // const [existDbData, setExistDbData] = useState("");
   const [submitSt, setSubmitSt] = useState(false);
   const [textFieldErr, setTextFieldErr] = useState(false);
   const [textFieldUserErr, setTextFieldUserErr] = useState(false);
-  const [textFieldPassErr, setTextFieldPasErr] = useState(false);
+  // const [textFieldPassErr, setTextFieldPasErr] = useState(false);
   const [regFormSum, setRegFormSum] = useState(false);
 
   

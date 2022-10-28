@@ -2,14 +2,14 @@ import React, { useEffect, useContext, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
+// import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
 import { Stack } from "@mui/system";
 import { Link } from "react-router-dom";
-import LoginSharpIcon from "@mui/icons-material/LoginSharp";
-import HowToRegSharpIcon from "@mui/icons-material/HowToRegSharp";
-import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartSharp";
+// import LoginSharpIcon from "@mui/icons-material/LoginSharp";
+// import HowToRegSharpIcon from "@mui/icons-material/HowToRegSharp";
+// import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartSharp";
 import { UserContext } from "../../App";
 
 const Navbar = (props) => {

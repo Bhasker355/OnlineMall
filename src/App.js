@@ -1,6 +1,6 @@
 // import { Switch } from "@mui/material";
 import React, { createContext, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./Ecommerce/Components/Navbar";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   TextField,
-  FormControlLabel,
+  
   Box,
   Typography,
   Button,
@@ -21,7 +21,7 @@ const Register = () => {
   const [submitSt, setSubmitSt] = useState(false);
   const [textFieldErr, setTextFieldErr] = useState(false);
   const [textFieldUserErr, setTextFieldUserErr] = useState(false);
-  const [textFieldPassErr, setTextFieldPasErr] = useState(false);
+  // const [textFieldPassErr, setTextFieldPasErr] = useState(false);
   const [regFormSum, setRegFormSum] = useState(false);
 
   useEffect(() => {

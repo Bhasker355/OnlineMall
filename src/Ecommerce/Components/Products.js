@@ -11,6 +11,7 @@ import Rating from "@mui/material/Rating";
 import Checkbox from "@mui/material/Checkbox";
 import productsDataArr from "./productsDataArr";
 
+const productsDataArrCopy = productsDataArr;
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 // export const UserContext = createContext();
@@ -136,9 +137,9 @@ const Products = () => {
         return a.price - b.price;
       });
       // console.log(priceList);
-      updateList = updateList.map((data, index) => {
-        data.id = index + 1;
-      });
+      // updateList = updateList.map((data, index) => {
+      //   data.id = index + 1;
+      // });
       setfilterData(updateList);
     } else {
       console.log(isHighToLow);
@@ -147,7 +148,7 @@ const Products = () => {
         const updateList = priceList.sort(function (a, b) {
           return a.id - b.id;
         });
-        // setfilterData(productsData);
+        setfilterData(productsDataArrCopy);
         console.log(productsData);
       }
     }
@@ -170,9 +171,9 @@ const Products = () => {
       const updateList = priceList.sort(function (a, b) {
         return b.price - a.price;
       });
-      updateList = updateList.map((data, index) => {
-        data.id = index + 1;
-      });
+      // updateList = updateList.map((data, index) => {
+      //   data.id = index + 1;
+      // });
       setfilterData(updateList);
     } else {
       console.log(isHighToLow);
@@ -204,9 +205,9 @@ const Products = () => {
       const updateList = priceList.sort(function (a, b) {
         return b.rating.rate - a.rating.rate;
       });
-      updateList = updateList.map((data, index) => {
-        data.id = index + 1;
-      });
+      // updateList = updateList.map((data, index) => {
+      //   data.id = index + 1;
+      // });
       setfilterData(updateList);
     } else {
       console.log(isHighToLow);
